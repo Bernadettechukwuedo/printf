@@ -1,22 +1,22 @@
 #include "main.h"
+
 /**
- * get_func - gets a particular function
+ * get_nflags - gets a particular function
  * @str: the string
  * @id: the index / function
+ *
  * This function is called from the _printf function after % is encountered
  * It will return NULL if the char after % is not a specifier and just print %
- * Return: a pointer to the function
+ *
+ * Return: number of characters to skip
  */
-
-int (*get_func(const char *str, int id))(va_list)
+int get_nflags(const char *str, int id)
 {
-	/* fns is an array of structs containing the format and its function */
 	prn fns[] = {
 		{"c", print_char},
 		{"s", print_str},
 		{"%", print_percent}, {NULL, NULL}
 	};
-
 	int i = 0, j = 0;
 
 	if (str)
@@ -27,7 +27,7 @@ int (*get_func(const char *str, int id))(va_list)
 			{
 				if (fns[i].c[j + 1] == '\0')
 				{
-					return (fns[i].func);
+					return (j + 1);
 				}
 				else
 				{
@@ -35,10 +35,8 @@ int (*get_func(const char *str, int id))(va_list)
 					j++;
 					id++;
 				}
-			}
-			i++;
+			} i++;
 		}
 	}
-	/* return Null if the format is null or the next char is not a specifier */
-	return (NULL);
+	return (0);
 }

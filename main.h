@@ -30,34 +30,8 @@ int (*get_func(const char *, int))(va_list);
 int get_nflags(const char *, int);
 
 /* Conversion specifier function prototypes */
-int print_addr(va_list);
-int print_bin(va_list);
-int print_char(va_list);
-int print_HEX(long int, unsigned int, unsigned int);
-int print_number(va_list);
-int print_short_number(va_list);
-int print_plus_number(va_list);
-int print_space_number(va_list);
-int print_long_number(va_list);
-int print_octal(va_list);
-int print_hash_octal(va_list);
-int print_long_octal(va_list);
-int print_short_octal(va_list);
-int print_unsigned_dec(va_list);
-int print_long_unsigned_dec(va_list);
-int print_short_unsigned_dec(va_list);
 int print_percent(va_list);
-int print_hash_hex(va_list);
-int print_hash_HEX(va_list);
-int print_unsigned_hex(va_list);
-int print_long_unsigned_hex(va_list);
-int print_short_unsigned_hex(va_list);
-int print_unsigned_HEX(va_list);
-int print_long_unsigned_HEX(va_list);
-int print_short_unsigned_HEX(va_list);
+int print_char(va_list);
 int print_str(va_list);
-int print_STR(va_list);
-int print_rev(va_list);
-int print_rot13(va_list);
 
 #endif
