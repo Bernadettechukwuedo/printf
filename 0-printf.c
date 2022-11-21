@@ -4,7 +4,7 @@
  * @format: is a character printf
  * a function pointer, that accepts va_list as argument
  * Declare a variable list, with its own argument(begins at va_start)
- * Return - the total number of characters printed(count)
+ * Return: the total number of characters printed(count)
  */
 int _printf(const char *format, ...)
 {
