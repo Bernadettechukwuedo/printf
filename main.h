@@ -57,4 +57,7 @@ int print_short_number(va_list);
 int print_HEX(long int, unsigned int, unsigned int);
 int print_addr(va_list);
 int print_STR(va_list);
+int print_plus_number(va_list);
+int print_rev(va_list);
+int print_rot13(va_list);
 #endif
