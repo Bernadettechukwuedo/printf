@@ -26,7 +26,8 @@ int get_nflags(const char *str, int id)
 		{"li", print_long_number}, {"ld", print_long_number},
 		{"hd", print_short_number}, {"hi", print_short_number},
 		{"p", print_addr}, {"o", print_octal},
-		{"u", print_unsigned_dec}, {NULL, NULL}
+		{"u", print_unsigned_dec}, {"S", print_STR},
+		{NULL, NULL}
 	};
 	int i = 0, j = 0;
 
