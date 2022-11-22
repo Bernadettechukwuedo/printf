@@ -5,23 +5,23 @@
  * @id: the index / function
  * This function is called from the _printf function after % is encountered
  * It will return NULL if the char after % is not a specifier and just print %
- * Return: a pointer to the function
+ * Return: a pointer to the functiiion
  */
 
 int (*get_func(const char *str, int id))(va_list)
 {
 	/* fns is an array of structs containing the format and its function */
 	prn fns[] = {
-		{"c", print_char},
-		{"s", print_str},
-		{"%", print_percent},
-		{" d", print_space_number},
-		{"d", print_number},
-		{"i", print_number},
-		{"b", print_binary},
-		{"u", print_unsigned_dec},
-		{"lu", print_long_unsigned_dec},
-		{"hu", print_short_unsigned_dec},
+		{"c", print_char}, {"s", print_str},
+		{"%", print_percent}, {" d", print_space_number},
+		{"d", print_number}, {"i", print_number},
+		{"b", print_binary}, {"lu", print_long_unsigned_dec},
+		{"hu", print_short_unsigned_dec}, {"x", print_unsigned_hex},
+		{"X", print_unsigned_HEX}, {"#x", print_hash_hex},
+		{"#X", print_hash_HEX},	{"#o", print_hash_octal},
+		{"ho", print_short_octal}, {"lo", print_long_octal},
+		{"lx", print_long_unsigned_hex}, {"lX", print_long_unsigned_HEX},
+		{"hx", print_short_unsigned_hex}, {"hX", print_short_unsigned_HEX},
 		{NULL, NULL}
 	};
 

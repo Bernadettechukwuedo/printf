@@ -13,15 +13,16 @@
 int get_nflags(const char *str, int id)
 {
 	prn fns[] = {
-		{"c", print_char},
-		{"s", print_str},
-		{"%", print_percent},
-		{" d", print_space_number},
-		{"d", print_number},
-		{"i", print_number},
-		{"b", print_binary},
-		{"lu", print_long_unsigned_dec},
-		{"hu", print_short_unsigned_dec},
+		{"c", print_char}, {"s", print_str},
+		{"%", print_percent}, {" d", print_space_number},
+		{"d", print_number}, {"i", print_number},
+		{"b", print_binary}, {"lu", print_long_unsigned_dec},
+		{"hu", print_short_unsigned_dec}, {"x", print_unsigned_hex},
+		{"X", print_unsigned_HEX}, {"#x", print_hash_hex},
+		{"#X", print_hash_HEX},	{"#o", print_hash_octal},
+		{"ho", print_short_octal}, {"lo", print_long_octal},
+		{"lx", print_long_unsigned_hex}, {"lX", print_long_unsigned_HEX},
+		{"hx", print_short_unsigned_hex}, {"hX", print_short_unsigned_HEX},
 		{NULL, NULL}
 	};
 	int i = 0, j = 0;
