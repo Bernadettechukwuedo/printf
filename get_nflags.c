@@ -23,6 +23,8 @@ int get_nflags(const char *str, int id)
 		{"ho", print_short_octal}, {"lo", print_long_octal},
 		{"lx", print_long_unsigned_hex}, {"lX", print_long_unsigned_HEX},
 		{"hx", print_short_unsigned_hex}, {"hX", print_short_unsigned_HEX},
+		{"li", print_long_number}, {"ld", print_long_number},
+		{"hd", print_short_number}, {"hi", print_short_number},
 		{NULL, NULL}
 	};
 	int i = 0, j = 0;
