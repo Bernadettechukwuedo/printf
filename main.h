@@ -33,5 +33,7 @@ int get_nflags(const char *, int);
 int print_percent(va_list);
 int print_char(va_list);
 int print_str(va_list);
-
+int print_space_number(va_list);
+int print_number(va_list);
+int print_plus_number(va_list);
 #endif
