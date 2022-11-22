@@ -18,7 +18,8 @@ int get_nflags(const char *str, int id)
 		{"%", print_percent},
 		{" d", print_space_number},
 		{"d", print_number},
-		{"i", print_number}, {NULL, NULL}
+		{"i", print_number},
+		{"b", print_binary}, {NULL, NULL}
 	};
 	int i = 0, j = 0;
 
