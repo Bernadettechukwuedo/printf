@@ -21,7 +21,7 @@ int get_nflags(const char *str, int id)
 		{" +d", print_plus_number}, {"i", print_number}, {"#X", print_hash_HEX},
 		{" i", print_space_number}, {"+i", print_plus_number},
 		{"+ i", print_plus_number}, {" +i", print_plus_number},
-		{"s", print_str}, {"%", print_percent}, {"b", print_bin},
+		{"s", print_str}, {"%", print_percent}, {"b", print_binary},
 		{"o", print_octal}, {"u", print_unsigned_dec}, {"R", print_rot13},
 		{"x", print_unsigned_hex}, {"X", print_unsigned_HEX},
 		{"lX", print_long_unsigned_HEX}, {"hX", print_short_unsigned_HEX},
