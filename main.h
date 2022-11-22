@@ -37,4 +37,8 @@ int print_space_number(va_list);
 int print_number(va_list);
 int print_plus_number(va_list);
 int print_binary(va_list);
+int print_unsigned_dec(va_list);
+int print_long_unsigned_dec(va_list);
+int print_short_unsigned_dec(va_list);
+
 #endif

@@ -18,7 +18,11 @@ int (*get_func(const char *str, int id))(va_list)
 		{" d", print_space_number},
 		{"d", print_number},
 		{"i", print_number},
-		{"b", print_binary}, {NULL, NULL}
+		{"b", print_binary},
+		{"u", print_unsigned_dec},
+		{"lu", print_long_unsigned_dec},
+		{"hu", print_short_unsigned_dec},
+		{NULL, NULL}
 	};
 
 	int i = 0, j = 0;
