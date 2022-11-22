@@ -1,36 +1,37 @@
 #include "main.h"
 
 /**
- * get_nflags - gets a particular function
- * @str: the string
- * @id: the index / function
+ * get_nflags - gets the number of flags encountered in the function
+ * @str: the string (format)
+ * @id: the index of char after %
  *
  * This function is called from the _printf function after % is encountered
- * It will return NULL if the char after % is not a specifier and just print %
+ * It will return the number of flags it encounters before a format specifier
  *
- * Return: number of characters to skip
+ * Return: number of flags and specifier, or 0
  */
 int get_nflags(const char *str, int id)
 {
 	prn fns[] = {
-		{"c", print_char}, {"s", print_str},
-		{"%", print_percent}, {" d", print_space_number},
-		{"d", print_number}, {"i", print_number},
-		{"b", print_binary}, {"lu", print_long_unsigned_dec},
-		{"hu", print_short_unsigned_dec}, {"x", print_unsigned_hex},
-		{"X", print_unsigned_HEX}, {"#x", print_hash_hex},
-		{"#X", print_hash_HEX},	{"#o", print_hash_octal},
-		{"ho", print_short_octal}, {"lo", print_long_octal},
-		{"lx", print_long_unsigned_hex}, {"lX", print_long_unsigned_HEX},
-		{"hx", print_short_unsigned_hex}, {"hX", print_short_unsigned_HEX},
-		{"li", print_long_number}, {"ld", print_long_number},
+		{"c", print_char}, {"d", print_number}, {" d", print_space_number},
+		{"+d", print_plus_number}, {"+ d", print_plus_number},
+		{"ld", print_long_number}, {"li", print_long_number},
 		{"hd", print_short_number}, {"hi", print_short_number},
-		{"p", print_addr}, {"o", print_octal},
-		{"u", print_unsigned_dec}, {"S", print_STR},
-		{NULL, NULL}
+		{"lu", print_long_unsigned_dec}, {"hu", print_short_unsigned_dec},
+		{" +d", print_plus_number}, {"i", print_number}, {"#X", print_hash_HEX},
+		{" i", print_space_number}, {"+i", print_plus_number},
+		{"+ i", print_plus_number}, {" +i", print_plus_number},
+		{"s", print_str}, {"%", print_percent}, {"b", print_bin},
+		{"o", print_octal}, {"u", print_unsigned_dec}, {"R", print_rot13},
+		{"x", print_unsigned_hex}, {"X", print_unsigned_HEX},
+		{"lX", print_long_unsigned_HEX}, {"hX", print_short_unsigned_HEX},
+		{"lx", print_long_unsigned_hex}, {"hx", print_short_unsigned_hex},
+		{"lo", print_long_octal}, {"ho", print_short_octal},
+		{"S", print_STR}, {"p", print_addr}, {"#o", print_hash_octal},
+		{"#x", print_hash_hex}, {"r", print_rev}, {NULL, NULL}
 	};
 	int i = 0, j = 0;
-
+	/* counts the flags and returns the number, + c will return 3 */
 	if (str)
 	{
 		while (fns[i].func != NULL)

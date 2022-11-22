@@ -1,38 +1,42 @@
 #include "main.h"
+
 /**
- * get_func - gets a particular function
+ * get_func - selects the handler for a specifier
  * @str: the string
- * @id: the index / function
+ * @id: the index of the element after % symbol
+ *
  * This function is called from the _printf function after % is encountered
  * It will return NULL if the char after % is not a specifier and just print %
- * Return: a pointer to the functiiion
+ *
+ * Return: a pointer to the function that handles the specifier, or NULL if
  */
-
 int (*get_func(const char *str, int id))(va_list)
 {
-	/* fns is an array of structs containing the format and its function */
+	/* fns is a struct array containing the specifier and its function */
 	prn fns[] = {
-		{"c", print_char}, {"s", print_str},
-		{"%", print_percent}, {" d", print_space_number},
-		{"d", print_number}, {"i", print_number},
-		{"b", print_binary}, {"lu", print_long_unsigned_dec},
-		{"hu", print_short_unsigned_dec}, {"x", print_unsigned_hex},
-		{"X", print_unsigned_HEX}, {"#x", print_hash_hex},
-		{"#X", print_hash_HEX},	{"#o", print_hash_octal},
-		{"ho", print_short_octal}, {"lo", print_long_octal},
-		{"lx", print_long_unsigned_hex}, {"lX", print_long_unsigned_HEX},
-		{"hx", print_short_unsigned_hex}, {"hX", print_short_unsigned_HEX},
-		{"li", print_long_number}, {"ld", print_long_number},
+		{"c", print_char}, {"d", print_number}, {" d", print_space_number},
+		{"+d", print_plus_number}, {"+ d", print_plus_number},
+		{"ld", print_long_number}, {"li", print_long_number},
 		{"hd", print_short_number}, {"hi", print_short_number},
-		{"p", print_addr}, {"o", print_octal},
-		{"u", print_unsigned_dec}, {"S", print_STR},
-		{NULL, NULL}
+		{"lu", print_long_unsigned_dec}, {"hu", print_short_unsigned_dec},
+		{" +d", print_plus_number}, {"i", print_number},
+		{" i", print_space_number}, {"+i", print_plus_number},
+		{"+ i", print_plus_number}, {" +i", print_plus_number},
+		{"s", print_str}, {"%", print_percent}, {"b", print_bin},
+		{"o", print_octal}, {"u", print_unsigned_dec},
+		{"x", print_unsigned_hex}, {"X", print_unsigned_HEX},
+		{"lX", print_long_unsigned_HEX}, {"hX", print_short_unsigned_HEX},
+		{"lx", print_long_unsigned_hex}, {"hx", print_short_unsigned_hex},
+		{"lo", print_long_octal}, {"ho", print_short_octal},
+		{"S", print_STR}, {"p", print_addr}, {"#o", print_hash_octal},
+		{"#x", print_hash_hex}, {"#X", print_hash_HEX}, {"r", print_rev},
+		{"R", print_rot13}, {NULL, NULL}
 	};
-
 	int i = 0, j = 0;
 
 	if (str)
 	{
+		/* comparing each fns.c to the characters after % */
 		while (fns[i].func != NULL)
 		{
 			if (fns[i].c[j] == str[id])
